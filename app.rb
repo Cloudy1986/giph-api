@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'httparty'
+require './lib/api'
 
 class ApplicationController < Sinatra::Base
   configure :development do
@@ -8,7 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @api_response = HTTParty.get('https://api.aakhilv.me/fun/facts')
+    @api_response = API.new('https://api.aakhilv.me', '/fun/facts')
     p @api_response
     erb :'home'
   end
