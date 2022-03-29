@@ -7,7 +7,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :'home'
+  end
+
+  post '/moods' do
+    erb :'giphs/index'
   end
 
   run! if app_file == $0
