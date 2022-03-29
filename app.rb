@@ -10,9 +10,5 @@ class ApplicationController < Sinatra::Base
     erb :'home'
   end
 
-  post '/moods' do
-    erb :'giphs/index'
-  end
-
   run! if app_file == $0
 end
